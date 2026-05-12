@@ -1,0 +1,39 @@
+model:
+  provider: anthropic
+  name: claude-sonnet-4-6
+  temperature: 0.0
+  max_tokens: 4096
+  thinking_budget: 0
+
+executor:
+  backend: local
+  timeout: 120.0
+  max_output_chars: 100000
+
+limits:
+  max_steps: 50
+  max_cost: 10.0
+  max_consecutive_format_errors: 3
+  missing_cost_policy: ignore
+
+template:
+  observation_template: |
+    Command: {{ command }}
+    Return code: {{ returncode }}
+    Stdout:
+    {{ stdout }}
+    Stderr:
+    {{ stderr }}
+    {% if exception %}Exception: {{ exception }}{% endif %}
+    {% if timed_out %}TIMED OUT after {{ elapsed }}s{% endif %}
+  observation_max_chars: 10000
+  observation_truncate_head: 5000
+  observation_truncate_tail: 5000
+
+trajectory:
+  output_path: ./trajectory.traj.json
+  save_on_interrupt: true
+
+batch:
+  workers: 1
+  redo_existing: false
