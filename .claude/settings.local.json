@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python3 -m mini_swe_agent run --help)",
-      "Bash(python3 -m mini_swe_agent config)"
-    ]
-  }
-}
