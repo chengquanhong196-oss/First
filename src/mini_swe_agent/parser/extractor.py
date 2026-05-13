@@ -9,7 +9,7 @@ from mini_swe_agent.models.messages import ModelResponse
 from mini_swe_agent.parser.errors import FormatError
 from mini_swe_agent.types import ActionFamily
 
-_TEXT_FENCED_RE = re.compile(r"```mswea_bash_command\s*\n(.*?)```", re.DOTALL | re.IGNORECASE)
+_TEXT_FENCED_RE = re.compile(r"```mswea_bash_command\s*(.*?)```", re.DOTALL | re.IGNORECASE)
 _TEXT_XML_RE = re.compile(
     r"<mswea_bash_command>\s*(.*?)</mswea_bash_command>", re.DOTALL | re.IGNORECASE
 )
