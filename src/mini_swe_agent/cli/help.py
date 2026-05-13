@@ -6,8 +6,3 @@ on your local machine. These commands can modify or delete files, install
 software, and access the network. Use with caution. Consider running inside
 a sandbox or container.
 """
-
-
-def get_help_with_warning(command_name: str = "mswea") -> str:
-    """Return help text prefixed with the security warning."""
-    return WARNING_TEXT.strip()
